@@ -1,0 +1,13 @@
+{
+  "name": "mysql-server",
+  "description": "Sets up a mysql server",
+  "json_class": "Chef::Role",
+  "chef_type": "role",
+  "default_attributes": {
+},
+"override_attributes": {},
+  "run_list": [
+    "role[base]",
+    "recipe[vm-mysql]"
+  ]
+}

@@ -1,0 +1,11 @@
+[user]
+        name = <%= @config['name']; %>
+        email = <%= @config['email']; %>
+[core]
+        editor = <%= @config['editor']; %>
+[alias]
+    <% @config['alias'].each_pair do |al, value| %>
+    <%= "#{al} = #{value}" %>
+    <% end %>
+[push]
+        default = <%= @config['push']; %>

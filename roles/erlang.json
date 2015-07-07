@@ -1,0 +1,18 @@
+{
+  "name": "erlang",
+  "description": "Sets up erlang vm",
+  "default_attributes": {
+    "erlang": {
+        "install_method": "source",
+        "source": {
+          "version": "17.5",
+          "url": "http://www.erlang.org/download/otp_src_17.5.tar.gz",
+          "checksum": "3c28820c981b30c50df8ac2a4a238e5813454fa3ed2ad530bc7948a282846474"
+        }
+    }
+  },
+  "run_list": [
+    "role[base]",
+    "recipe[erlang]"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+    "name": "tomcat6",
+    "description": "tomcat6 installation.",
+    "json_class": "Chef::Role",
+    "chef_type": "role",
+    "run_list": [
+        "role[base]",
+        "role[dev]"
+    ],
+    "override_attributes": {},
+    "default_attributes": {
+        "tomcat": {
+            "run_base_instance": false
+        }
+    }
+}

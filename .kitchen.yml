@@ -1,0 +1,44 @@
+---
+driver:
+  name: vagrant
+driver_config:
+  require_chef_omnibus: true
+  use_vagrant_berkshelf_plugin: true
+  customize:
+    memory: 4096
+    cpus: 2
+  digitalocean_client_id: <%= ENV['DIGITAL_OCEAN_CLIENT_ID'] %>
+  digitalocean_api_key: <%= ENV['DIGITAL_OCEAN_API_KEY'] %>
+  aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+  aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+  aws_ssh_key_id: <%= ENV['AWS_KEYPAIR_NAME'] %>
+
+provisioner:
+  name: chef_zero
+  roles_path: roles
+  nodes_path: nodes
+  environments_path: environments
+  data_bags_path: data_bags
+  cookbook_path: ["cookbooks", "domain-cookbooks"]
+  client_rb:
+    environment: dev
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+###### Server type suites ######
+  - name: dev-server
+    driver:
+      ssh:
+        forward_agent: true
+      vm_hostname: dev-node.vibrantmedia.com
+      network:
+        - ["private_network", {ip: "192.168.30.20"}]
+      customize:
+        memory: 4096
+        cpus: 2
+      synced_folders:
+        - ["/workspace", "/workspace"]
+    run_list:
+    attributes: {}

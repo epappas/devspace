@@ -1,0 +1,6 @@
+{
+    "id": "dev",
+    "name": "dev",
+    "gid": 11,
+    "sudo": "yes"
+}

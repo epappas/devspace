@@ -1,0 +1,25 @@
+export EDITOR="<%= @gitconfig['editor']; %>"
+
+# Git branch in prompt.
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+source /etc/profile.d/git-completion.sh
+
+source /etc/profile.d/complete-hosts.sh
+
+# AWS Credentials
+export AWS_ACCESS_KEY_ID=<%= @config['AWS_ACCESS_KEY_ID']; %>
+export AWS_SECRET_ACCESS_KEY=<%= @config['AWS_SECRET_ACCESS_KEY']; %>
+
+# GIT Details
+export GIT_AUTHOR_NAME="<%= @gitconfig['name']; %>"
+export GIT_AUTHOR_EMAIL="<%= @gitconfig['email']; %>"
+export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+
+#github.com details
+export GIT_API_TOKEN="<%= @gitconfig['api_token']; %>"
+
+export NODE_ENV=development

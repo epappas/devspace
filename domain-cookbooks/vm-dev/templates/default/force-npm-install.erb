@@ -1,0 +1,14 @@
+#! /bin/sh
+# /usr/local/bin/force-npm-install
+#
+
+rand=$(head -c 10 /dev/random | base64)
+old_cwd=$(pwd)
+
+mkdir -p /tmp/$rand
+rsync -rqa . /tmp/$rand
+cd /tmp/$rand
+npm install --no-bin-links
+rsync -rqa --delete . $old_cwd
+cd $old_cwd
+rm -rf /tmp/$rand

@@ -1,0 +1,33 @@
+{
+  "name": "dev",
+  "description": "Anything needed for development.",
+  "json_class": "Chef::Role",
+  "chef_type": "role",
+  "run_list": [
+    "recipe[vm-dev::packages]",
+    "recipe[vm-dev::pip]",
+    "recipe[vm-dev::force-npm-install]",
+    "recipe[vm-hosts]"
+  ],
+  "override_attributes": {},
+  "default_attributes": {
+    "dev": {
+      "packages": [
+        "vim", "telnet", "netcat", "net-tools", "htop", "sysstat",
+        "dnsutils", "zip", "unzip", "links", "lsof",
+        "bash-completion", "mlocate", "traceroute", "iotop",
+        "iftop", "tcpdump", "nano", "g++", "flex", "bison",
+        "cmake", "libboost-dev", "libboost-filesystem-dev",
+        "libboost-system-dev", "libboost-program-options-dev",
+        "libboost-iostreams-dev", "maven", "python-pip", "libboost-all-dev",
+        "libfontconfig"
+      ],
+      "pip": [
+        "awscli"
+      ]
+    },
+    "hosts": {
+      "list": [ ]
+    }
+  }
+}

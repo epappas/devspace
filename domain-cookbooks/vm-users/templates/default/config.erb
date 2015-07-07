@@ -1,0 +1,22 @@
+Host *
+    ForwardAgent yes
+    SendEnv AWS_* GIT_*
+
+<% @config.each do |conf| %>
+Host <%= conf['host'] %>
+    <% if conf[:user] %>
+    User <%= conf ['user'] %>
+    <% end %>
+    <% if conf[:hostName] %>
+    HostName <%= conf ['hostName'] %>
+    <% end %>
+    <% if conf[:port] %>
+    Port <%= conf ['port'] %>
+    <% end %>
+    <% if conf[:identitiesOnly] %>
+    IdentitiesOnly <%= conf ['identitiesOnly'] %>
+    <% end %>
+    <% if conf[:identityFile] %>
+    IdentityFile <%= conf ['identityFile'] %>
+    <% end %>
+<% end %>

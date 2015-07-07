@@ -1,0 +1,24 @@
+{
+    "name": "couchdb-server",
+    "description": "Sets up couchdb server",
+    "default_attributes": {
+        "couch_db": {
+            "src_mirror": "http://mirror.ox.ac.uk/sites/rsync.apache.org/couchdb/source/1.6.1/apache-couchdb-1.6.1.tar.gz",
+            "src_version": "1.6.1",
+            "src_checksum": "5a601b173733ce3ed31b654805c793aa907131cd70b06d03825f169aa48c8627",
+            "install_erlang": false,
+            "config": {
+                "httpd": {
+                    "bind_address": "0.0.0.0",
+                    "port": 5984
+                }
+            }
+        }
+    },
+    "run_list": [
+        "role[base]",
+        "recipe[build-essential::default]",
+        "role[erlang]",
+        "recipe[couchdb::source]"
+    ]
+}
