@@ -17,6 +17,7 @@
     "role[nodejs-server]",
     "role[tomcat6]",
     "role[erlang]",
+    "role[rustlang]",
     "role[couchdb-server]",
     "role[mysql-server]",
     "role[aerospike-server]"

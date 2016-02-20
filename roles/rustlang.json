@@ -1,0 +1,14 @@
+{
+  "name": "rustlang",
+  "description": "Sets up rustlang env",
+  "default_attributes": {
+    "rustlang": {
+        "version": "1.6.0"
+    }
+  },
+  "run_list": [
+    "role[base]",
+    "role[dev]",
+    "recipe[rustlang]"
+  ]
+}
