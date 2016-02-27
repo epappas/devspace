@@ -18,9 +18,9 @@
     "role[tomcat6]",
     "role[erlang]",
     "role[rustlang]",
+    "role[golang]",
     "role[couchdb-server]",
-    "role[mysql-server]",
-    "role[aerospike-server]"
+    "role[mysql-server]"
   ],
   "normal": {
     "docker": {

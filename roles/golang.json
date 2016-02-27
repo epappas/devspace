@@ -1,0 +1,10 @@
+{
+  "name": "golang",
+  "description": "Sets up golang env",
+  "default_attributes": { },
+  "run_list": [
+    "role[base]",
+    "role[dev]",
+    "recipe[golang]"
+  ]
+}
