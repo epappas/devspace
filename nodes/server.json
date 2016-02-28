@@ -19,6 +19,7 @@
     "role[erlang]",
     "role[rustlang]",
     "role[golang]",
+    "role[bitcoind]",
     "role[couchdb-server]",
     "role[mysql-server]"
   ],

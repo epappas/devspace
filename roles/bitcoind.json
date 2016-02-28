@@ -1,0 +1,25 @@
+{
+  "name": "bitcoind",
+  "description": "Sets up bitcoind env",
+  "default_attributes": {
+    "bitcoind": {
+      "install_method": "source",
+      "source": {
+        "git_revision": "v0.12.0",
+        "git_repo": "https://github.com/bitcoin/bitcoin.git",
+        "bin_name": "bitcoind"
+      },
+      "testnet": 0,
+      "irc": 1,
+      "dnsseed": 1,
+      "upnp": 1,
+      "server": 1,
+      "checkblocks": 288
+    }
+  },
+  "run_list": [
+    "role[base]",
+    "role[dev]",
+    "recipe[chef-bitcoind]"
+  ]
+}

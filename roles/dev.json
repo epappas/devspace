@@ -20,7 +20,7 @@
         "cmake", "libboost-dev", "libboost-filesystem-dev",
         "libboost-system-dev", "libboost-program-options-dev",
         "libboost-iostreams-dev", "maven", "python-pip", "libboost-all-dev",
-        "libfontconfig"
+        "libfontconfig", "libtool", "libevent-dev"
       ],
       "pip": [
         "awscli"
