@@ -13,7 +13,7 @@
       "irc": 1,
       "dnsseed": 1,
       "upnp": 1,
-      "server": 1,
+      "server": 0,
       "checkblocks": 288
     }
   },
