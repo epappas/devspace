@@ -99,24 +99,31 @@ install_deps(){
 }
 
 install_chef(){
-  if [[ `uname -a` == *"amd64"* ]]; then
-    if [ ! -z "$(safe_f_stat /opt/chefdk)" ]; then
-      # url="https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.6.0-1_amd64.deb"
-      url="https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.6.2-1_amd64.deb"
-      pkg="/tmp/`basename \`echo $url\``"
+  case "$(uname -a)" in
+    *x86_64*) # A normal case, as always!
+      if [ ! -z "$(safe_f_stat /opt/chefdk)" ]; then
+        # url="https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.6.0-1_amd64.deb"
+        url="https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.6.2-1_amd64.deb"
+        pkg="/tmp/`basename \`echo $url\``"
 
-      safe_do wget "$url" -O "$pkg"
+        safe_do wget "$url" -O "$pkg"
 
-      safe_do dpkg -i --force-overwrite "$pkg"
-      safe_do apt-get -f install
-      safe_do rm -f "$pkg"
-    fi
-  else
-    safe_do apt-get install chef
-    GEM_BIN="gem"
-    BERKS_BIN="berks"
-  fi
-
+        safe_do dpkg -i --force-overwrite "$pkg"
+        safe_do apt-get -f install
+        safe_do rm -f "$pkg"
+      fi
+      ;;
+    *armv7l*) # raspberry pi FTW!
+      safe_do apt-get install chef
+      GEM_BIN="gem"
+      BERKS_BIN="berks"
+      ;;
+    *) # no idea what to do here, lets just trust the community
+      safe_do apt-get install chef
+      GEM_BIN="gem"
+      BERKS_BIN="berks"
+      ;;
+  esac
 }
 
 install_gem_deps(){
