@@ -7,9 +7,15 @@
     "nodejs": {
       "version": "5.7.1",
       "install_method": "source",
+      "source": {
+        "url": "https://nodejs.org/dist/latest-v5.x/node-v5.7.1.tar.gz",
+        "checksum": "ecd4956335c6b86f1b72fd203abd9a833717e6800edb12208d0e3ce625330198"
+      },
       "npm": {
         "version": "3.7.3",
-        "install_method": "source"
+        "install_method": "source",
+        "url": "http://registry.npmjs.org/npm/-/npm-3.7.3.tgz",
+        "checksum": "3f787fa7dc401d3dca40abed838c20ad1abcdef8947581c9856427db9a92be7a"
       },
       "npm_packages": [{
         "name": "express",
