@@ -5,13 +5,12 @@
   "chef_type": "role",
   "default_attributes": {
     "nodejs": {
-      "version": "0.10.38",
+      "version": "5.7.1",
       "source": {
-        "url": "http://nodejs.org/dist/v0.10.38/node-v0.10.38.tar.gz",
-        "checksum": "513da8ed5e48abefdfab664f1cabc160238d314a0481148804aff8fc6552b78b"
+        "url": "https://nodejs.org/dist/v5.7.1/node-v5.7.1.tar.gz"
       },
       "npm": {
-        "version": "2.13.0",
+        "version": "3.7.3",
         "install_method": "source"
       },
       "npm_packages": [{

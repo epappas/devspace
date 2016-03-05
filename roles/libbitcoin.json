@@ -1,0 +1,11 @@
+{
+  "name": "libbitcoin",
+  "description": "Sets up libbitcoin env",
+  "default_attributes": {
+  },
+  "run_list": [
+    "role[base]",
+    "role[dev]",
+    "recipe[libbitcoin]"
+  ]
+}
