@@ -6,15 +6,23 @@
   "default_attributes": {
     "nodejs": {
       "version": "5.7.1",
-      "source": {
-        "url": "https://nodejs.org/dist/v5.7.1/node-v5.7.1.tar.gz"
-      },
+      "install_method": "source",
       "npm": {
         "version": "3.7.3",
         "install_method": "source"
       },
       "npm_packages": [{
         "name": "express",
+        "action": "install"
+      }, {
+        "name": "n",
+        "action": "install"
+      }, {
+        "name": "phantomjs",
+        "action": "install",
+        "version": "1.9.19"
+      }, {
+        "name": "async",
         "action": "install"
       }, {
         "name": "bower",
