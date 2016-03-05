@@ -20,6 +20,8 @@ USER='root'
 GROUP='root'
 SUDO="sudo -i -u $USER"
 SUDO2="sudo -u $USER"
+GEM_BIN="/opt/chefdk/embedded/bin/gem"
+BERKS_BIN="/opt/chefdk/embedded/bin/berks"
 export USE_SYSTEM_GECODE=1
 
 set -e
@@ -97,23 +99,30 @@ install_deps(){
 }
 
 install_chef(){
-  if [ ! -z "$(safe_f_stat /opt/chefdk)" ]; then
-    # url="https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.6.0-1_amd64.deb"
-    url="https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.6.2-1_amd64.deb"
-    pkg="/tmp/`basename \`echo $url\``"
+  if [[ `uname -a` == *"amd64"* ]]; then
+    if [ ! -z "$(safe_f_stat /opt/chefdk)" ]; then
+      # url="https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.6.0-1_amd64.deb"
+      url="https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.6.2-1_amd64.deb"
+      pkg="/tmp/`basename \`echo $url\``"
 
-    safe_do wget "$url" -O "$pkg"
+      safe_do wget "$url" -O "$pkg"
 
-    safe_do dpkg -i --force-overwrite "$pkg"
-    safe_do apt-get -f install
-    safe_do rm -f "$pkg"
+      safe_do dpkg -i --force-overwrite "$pkg"
+      safe_do apt-get -f install
+      safe_do rm -f "$pkg"
+    fi
+  else
+    safe_do apt-get install chef
+    GEM_BIN="gem"
+    BERKS_BIN="berks"
   fi
+
 }
 
 install_gem_deps(){
-  safe_do /opt/chefdk/embedded/bin/gem install --no-rdoc --no-ri ruby-shadow knife-solo foodcritic
+  safe_do $GEM_BIN install --no-rdoc --no-ri ruby-shadow knife-solo foodcritic
   if [ ! -z "$(safe_f_stat  /usr/local/bin/berks)" ]; then
-    safe_do ln -s /opt/chefdk/embedded/bin/berks /usr/local/bin
+    safe_do ln -s $BERKS_BIN /usr/local/bin
   fi
 }
 
