@@ -1,4 +1,4 @@
-# Chefspace
+# Devspace
 A workspace set up for node.js developers
 
 - [Supported Platforms](#supported-platforms)
@@ -25,7 +25,7 @@ Has been tested on
 
   ```
    $ git clone https://github.com/epappas/devspace.git
-   $ cd chefspace
+   $ cd devspace
   ```
 
 - Install any dependency
@@ -114,7 +114,7 @@ After any change that you are making, apply them by executing
     $ kitchen converge .
 ```
 
-To login run, in the directory of chefspace
+To login run, in the directory of devspace
 
 ```
     $ kitchen login

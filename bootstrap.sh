@@ -1,8 +1,8 @@
 #!/bin/sh
 #
-# Copyright 2015 Vibrant Media Ltd
+# Copyright 2015 Evangelos Pappas <epappas@evalonlabs.com>
 #
-# Refer to chefspace README.md
+# Refer to devspace README.md
 #
 # Contributors:
 # - Evangelos Pappas
@@ -11,8 +11,8 @@
 
 DRY_MODE=0
 LOCAL_MODE=0
-CHEFSPACE_LOCAL_PATH='.'
-CHEFSPACE_TARGET_PATH=/opt/chef/chefspace
+DEVSPACE_LOCAL_PATH='.'
+DEVSPACE_TARGET_PATH=/opt/chef/devspace
 SSH_ARGS='-t'
 SSH_ACC=''
 SSH_HOST=''
@@ -117,22 +117,22 @@ install_gem_deps(){
   fi
 }
 
-install_chefspace(){
-  safe_do mkdir -p $CHEFSPACE_TARGET_PATH
-  safe_transfer $CHEFSPACE_LOCAL_PATH $CHEFSPACE_TARGET_PATH
-  unsafe_do /usr/local/bin/berks vendor $CHEFSPACE_TARGET_PATH/cookbooks
+install_devspace(){
+  safe_do mkdir -p $DEVSPACE_TARGET_PATH
+  safe_transfer $DEVSPACE_LOCAL_PATH $DEVSPACE_TARGET_PATH
+  unsafe_do /usr/local/bin/berks vendor $DEVSPACE_TARGET_PATH/cookbooks
 }
 
-run_chefspace(){
-  unsafe_do chef-client -c $CHEFSPACE_TARGET_PATH/.chef/client.rb -j $CHEFSPACE_TARGET_PATH/nodes/server.json
+run_devspace(){
+  unsafe_do chef-client -c $DEVSPACE_TARGET_PATH/.chef/client.rb -j $DEVSPACE_TARGET_PATH/nodes/server.json
 }
 
 run_main(){
   install_deps
   install_chef
   install_gem_deps
-  install_chefspace
-  run_chefspace
+  install_devspace
+  run_devspace
 }
 
 if [ $# -eq 0 ]; then

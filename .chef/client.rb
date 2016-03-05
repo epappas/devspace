@@ -1,5 +1,5 @@
 node_name 'server'
-base = '/opt/chef/chefspace'
+base = '/opt/chef/devspace'
 
 chef_zero.enabled true
 file_cache_path base
@@ -9,7 +9,7 @@ data_bag_path File.join(base, 'data_bags')
 environment_path File.join(base, 'environments')
 environment 'dev'
 # encrypted_data_bag_secret File.join(base, 'data_bag_key')
-# json_attribs '/opt/chef/chefspace/.chef/server.json'
+# json_attribs '/opt/chef/devspace/.chef/server.json'
 
 cookbook_path []
 cookbook_path << File.join(base, 'cookbooks')

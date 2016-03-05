@@ -32,7 +32,7 @@ suites:
     driver:
       ssh:
         forward_agent: true
-      vm_hostname: dev-node.vibrantmedia.com
+      vm_hostname: devspace
       network:
         - ["private_network", {ip: "192.168.30.20"}]
       customize:
