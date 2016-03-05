@@ -127,10 +127,20 @@ install_chef(){
 }
 
 install_gem_deps(){
-  safe_do $GEM_BIN install --no-rdoc --no-ri ruby-shadow knife-solo foodcritic
-  if [ ! -z "$(safe_f_stat  /usr/local/bin/berks)" ]; then
-    safe_do ln -s $BERKS_BIN /usr/local/bin
-  fi
+  case "$(uname -a)" in
+    *x86_64*) # A normal case, as always!
+      safe_do $GEM_BIN install --no-rdoc --no-ri ruby-shadow knife-solo foodcritic
+      if [ ! -z "$(safe_f_stat  /usr/local/bin/berks)" ]; then
+        safe_do ln -s $BERKS_BIN /usr/local/bin
+      fi
+      ;;
+    *armv7l*) # raspberry pi FTW!
+      safe_do $GEM_BIN install --no-rdoc --no-ri ruby-shadow knife-solo foodcritic berkshelf
+      ;;
+    *) # no idea what to do here, lets just trust the community
+      safe_do $GEM_BIN install --no-rdoc --no-ri ruby-shadow knife-solo foodcritic berkshelf
+      ;;
+  esac
 }
 
 install_devspace(){
