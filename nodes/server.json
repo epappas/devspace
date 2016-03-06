@@ -33,6 +33,9 @@
     "hosts": {
       "list": [{
         "ipaddress": "127.0.0.1",
+        "hostname": "devspace"
+      }, {
+        "ipaddress": "127.0.0.1",
         "hostname": "dev-node"
       }, {
         "ipaddress": "127.0.0.1",
