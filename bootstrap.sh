@@ -131,6 +131,7 @@ install_gem_deps(){
     *x86_64*) # A normal case, as always!
       safe_do $GEM_BIN install --no-rdoc --no-ri ruby-shadow knife-solo foodcritic
       if [ ! -z "$(safe_f_stat  /usr/local/bin/berks)" ]; then
+        safe_do rm /usr/local/bin/berks
         safe_do ln -s $BERKS_BIN /usr/local/bin
       fi
       ;;
@@ -146,7 +147,7 @@ install_gem_deps(){
 install_devspace(){
   safe_do mkdir -p $DEVSPACE_TARGET_PATH
   safe_transfer $DEVSPACE_LOCAL_PATH $DEVSPACE_TARGET_PATH
-  unsafe_do /usr/local/bin/berks vendor $DEVSPACE_TARGET_PATH/cookbooks
+  unsafe_do /usr/local/bin/berks --berksfile=$DEVSPACE_TARGET_PATH/Berksfile vendor $DEVSPACE_TARGET_PATH/cookbooks
 }
 
 run_devspace(){
@@ -177,6 +178,5 @@ fi
 
 SSH_ACC=$1
 SSH_HOST=$2
-SSH_ARGS=$3
 
 run_main
