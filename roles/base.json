@@ -16,7 +16,6 @@
     "run_list": [
     "recipe[apt]",
     "recipe[build-essential::default]",
-    "recipe[git]",
     "recipe[vm-users::default]",
     "recipe[java::oracle]"
   ]
