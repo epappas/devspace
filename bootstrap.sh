@@ -147,7 +147,7 @@ install_gem_deps(){
 install_devspace(){
   safe_do mkdir -p $DEVSPACE_TARGET_PATH
   safe_transfer $DEVSPACE_LOCAL_PATH $DEVSPACE_TARGET_PATH
-  unsafe_do /usr/local/bin/berks --berksfile=$DEVSPACE_TARGET_PATH/Berksfile vendor $DEVSPACE_TARGET_PATH/cookbooks
+  unsafe_do /usr/local/bin/berks vendor $DEVSPACE_TARGET_PATH/cookbooks
 }
 
 run_devspace(){

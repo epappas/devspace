@@ -1,7 +1,7 @@
 source 'https://supermarket.chef.io/'
 
-Dir.glob(File.expand_path('../domain-cookbooks/*', __FILE__)).each do |path|
-  metadata path: path
+Dir.glob(File.expand_path('/opt/chef/devspace/domain-cookbooks/*', __FILE__)).each do |path|
+    metadata path: path
 end
 
 # Add cookbooks that added directly (not mentioned as dependency in metadata)
