@@ -34,6 +34,9 @@
         "name": "bower",
         "action": "install"
       }, {
+        "name": "babel",
+        "action": "install"
+      }, {
         "name": "jshint",
         "action": "install"
       }, {

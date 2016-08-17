@@ -22,7 +22,8 @@
         "libboost-iostreams-dev", "maven", "python-pip", "libboost-all-dev",
         "libfontconfig", "libtool", "libevent-dev", "screen", "tmux",
         "build-essential", "autoconf", "automake", "libtool", "pkg-config",
-        "libboost-all-dev", "software-properties-common"
+        "libboost-all-dev", "software-properties-common", "linux-tools-generic",
+        "linux-cloud-tools-generic", "linux-tools-common"
       ],
       "pip": [
         "awscli"
