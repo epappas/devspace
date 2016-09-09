@@ -23,7 +23,9 @@
         "libfontconfig", "libtool", "libevent-dev", "screen", "tmux",
         "build-essential", "autoconf", "automake", "libtool", "pkg-config",
         "libboost-all-dev", "software-properties-common", "linux-tools-generic",
-        "linux-cloud-tools-generic", "linux-tools-common"
+        "linux-cloud-tools-generic", "linux-tools-common", "python3-pip", "python3-tk",
+        "python-numpy", "python-scipy", "python-matplotlib", "ipython", "ipython-notebook",
+        "python-pandas", "python-sympy", "python-nose"
       ],
       "pip": [
         "awscli"

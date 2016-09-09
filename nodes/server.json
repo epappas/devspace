@@ -20,7 +20,8 @@
     "role[rustlang]",
     "role[golang]",
     "role[couchdb-server]",
-    "role[mysql-server]"
+    "role[mysql-server]",
+    "role[postgres-server]"
   ],
   "normal": {
     "docker": {
