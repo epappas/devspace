@@ -4,5 +4,5 @@ LAST_WD=$(pwd)
 
 cd ./.kitchen/*/*/
 vagrant halt
-vagrant up
+vagrant up --provision
 cd $LAST_WD

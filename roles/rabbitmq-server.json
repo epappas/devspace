@@ -1,0 +1,13 @@
+{
+    "name": "rabbitmq-server",
+    "description": "Sets up a rabbitmq server",
+    "json_class": "Chef::Role",
+    "chef_type": "role",
+    "default_attributes": {},
+    "override_attributes": {},
+    "run_list": [
+        "role[base]",
+        "role[erlang]",
+        "recipe[rabbitmq::default]"
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "name": "python",
+    "description": "Sets up python env",
+    "default_attributes": {
+        "poise-python": {
+            "install_python2": true,
+            "install_python3": true,
+            "install_pypy": true
+        }
+    },
+    "run_list": [
+        "role[base]",
+        "role[dev]",
+        "recipe[poise-python::default]"
+    ]
+}

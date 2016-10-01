@@ -17,7 +17,6 @@
     },
     "run_list": [
         "role[base]",
-        "recipe[build-essential::default]",
         "role[erlang]",
         "recipe[couchdb::source]"
     ]

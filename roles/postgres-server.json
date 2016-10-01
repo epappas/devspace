@@ -1,14 +1,20 @@
 {
-  "name": "postgres-server",
-  "description": "Sets up a postgres server",
-  "json_class": "Chef::Role",
-  "chef_type": "role",
-  "default_attributes": {
-},
-"override_attributes": {},
-  "run_list": [
-    "role[base]",
-    "recipe[postgres::server]",
-    "recipe[postgres::client]"
-  ]
+    "name": "postgres-server",
+    "description": "Sets up a postgres server",
+    "json_class": "Chef::Role",
+    "chef_type": "role",
+    "default_attributes": {
+        "postgresql": {
+            "version": "9.4.0",
+            "config": {
+
+            }
+        }
+    },
+    "override_attributes": {},
+    "run_list": [
+        "role[base]",
+        "recipe[postgresql::server]",
+        "recipe[postgresql::client]"
+    ]
 }

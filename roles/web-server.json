@@ -15,7 +15,7 @@
                     }],
                     "statics": [{
                         "location": "/",
-                        "path": "/workspace/projects/someproject/dist"
+                        "path": "/workspace"
                     }]
                 }]
             }

@@ -1,48 +1,60 @@
 {
-  "name": "server",
-  "json_class": "Chef::Node",
-  "chef_type": "node",
-  "chef_environment": "dev",
-  "setup": {
-     "set_fqdn": "*"
-  },
-  "override": { },
-  "default": { },
-  "automatic": { },
-  "run_list": [
-    "role[base]",
-    "role[dev]",
-    "role[docker]",
-    "role[web-server]",
-    "role[nodejs-server]",
-    "role[tomcat6]",
-    "role[erlang]",
-    "role[rustlang]",
-    "role[golang]",
-    "role[couchdb-server]",
-    "role[mysql-server]",
-    "role[postgres-server]"
-  ],
-  "normal": {
-    "docker": {
-      "images": [
-      ],
-      "containers": [ ]
+    "name": "server",
+    "json_class": "Chef::Node",
+    "chef_type": "node",
+    "chef_environment": "dev",
+    "setup": {
+        "set_fqdn": "*"
     },
-    "hosts": {
-      "list": [{
-        "ipaddress": "127.0.0.1",
-        "hostname": "devspace"
-      }, {
-        "ipaddress": "127.0.0.1",
-        "hostname": "dev-node"
-      }, {
-        "ipaddress": "127.0.0.1",
-        "hostname": "aerospike"
-      }, {
-        "ipaddress": "127.0.0.1",
-        "hostname": "couchdb"
-      }]
+    "override": {},
+    "default": {},
+    "automatic": {},
+    "run_list": [
+        "role[base]",
+        "role[dev]",
+        "role[docker]",
+        "role[web-server]",
+        "role[nodejs-server]",
+        "role[erlang]",
+        "role[rustlang]",
+        "role[golang]",
+        "role[python]",
+        "role[couchdb-server]",
+        "role[mysql-server]",
+        "role[rabbitmq-server]",
+        "role[redis-server]"
+    ],
+    "normal": {
+        "docker": {
+            "images": [],
+            "containers": []
+        },
+        "hosts": {
+            "list": [{
+                "ipaddress": "127.0.0.1",
+                "hostname": "devspace"
+            }, {
+                "ipaddress": "127.0.0.1",
+                "hostname": "workspace"
+            }, {
+                "ipaddress": "127.0.0.1",
+                "hostname": "aerospike"
+            }, {
+                "ipaddress": "127.0.0.1",
+                "hostname": "couchdb"
+            }, {
+                "ipaddress": "127.0.0.1",
+                "hostname": "postgres"
+            }, {
+                "ipaddress": "127.0.0.1",
+                "hostname": "mysql"
+            }, {
+                "ipaddress": "127.0.0.1",
+                "hostname": "rabbitmq"
+            }, {
+                "ipaddress": "127.0.0.1",
+                "hostname": "redis"
+            }]
+        }
     }
-  }
 }

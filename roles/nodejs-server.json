@@ -1,67 +1,70 @@
 {
-  "name": "nodejs-server",
-  "description": "Sets up a NodeJS server",
-  "json_class": "Chef::Role",
-  "chef_type": "role",
-  "default_attributes": {
-    "nodejs": {
-      "version": "5.7.1",
-      "install_method": "source",
-      "source": {
-        "url": "https://nodejs.org/dist/latest-v5.x/node-v5.7.1.tar.gz",
-        "checksum": "ecd4956335c6b86f1b72fd203abd9a833717e6800edb12208d0e3ce625330198"
-      },
-      "npm": {
-        "version": "3.7.3",
-        "install_method": "source",
-        "url": "http://registry.npmjs.org/npm/-/npm-3.7.3.tgz",
-        "checksum": "3f787fa7dc401d3dca40abed838c20ad1abcdef8947581c9856427db9a92be7a"
-      },
-      "npm_packages": [{
-        "name": "express",
-        "action": "install"
-      }, {
-        "name": "n",
-        "action": "install"
-      }, {
-        "name": "phantomjs",
-        "action": "install",
-        "version": "1.9.19"
-      }, {
-        "name": "async",
-        "action": "install"
-      }, {
-        "name": "bower",
-        "action": "install"
-      }, {
-        "name": "babel",
-        "action": "install"
-      }, {
-        "name": "jshint",
-        "action": "install"
-      }, {
-        "name": "nodemon",
-        "action": "install"
-      }, {
-        "name": "gulp",
-        "action": "install"
-      }, {
-        "name": "mocha",
-        "action": "install"
-      }, {
-        "name": "node-gyp",
-        "action": "install"
-      }, {
-        "name": "pangyp",
-        "action": "install"
-      }]
-    }
-  },
-  "override_attributes": {},
-  "run_list": [
-    "role[base]",
-    "recipe[nodejs::nodejs_from_source]",
-    "recipe[nodejs::npm_from_source]",
-    "recipe[nodejs::npm_packages]"
-  ]
+    "name": "nodejs-server",
+    "description": "Sets up a NodeJS server",
+    "json_class": "Chef::Role",
+    "chef_type": "role",
+    "default_attributes": {
+        "nodejs": {
+            "version": "6.7.0",
+            "install_method": "source",
+            "source": {
+                "url": "https://nodejs.org/dist/v6.7.0/node-v6.7.0.tar.gz",
+                "checksum": "02b8ee1719a11b9ab22bef9279519efaaf31dd0d39cba4c3a1176ccda400b8d6"
+            },
+            "npm": {
+                "version": "3.10.8",
+                "install_method": "source",
+                "url": "http://registry.npmjs.org/npm/-/npm-3.10.8.tgz",
+                "checksum": "1121a75a370fd0efb320fffb7c9e4a8bcb3840d1cf2fbd585c54837b7014dd76"
+            },
+            "npm_packages": [{
+                "name": "express",
+                "action": "install"
+            }, {
+                "name": "n",
+                "action": "install"
+            }, {
+                "name": "phantomjs",
+                "action": "install",
+                "version": "1.9.19"
+            }, {
+                "name": "async",
+                "action": "install"
+            }, {
+                "name": "bower",
+                "action": "install"
+            }, {
+                "name": "babel",
+                "action": "install"
+            }, {
+                "name": "jshint",
+                "action": "install"
+            }, {
+                "name": "nodemon",
+                "action": "install"
+            }, {
+                "name": "gulp",
+                "action": "install"
+            }, {
+                "name": "mocha",
+                "action": "install"
+            }, {
+                "name": "node-gyp",
+                "action": "install"
+            }, {
+                "name": "pangyp",
+                "action": "install"
+            }, {
+                "name": "webpack",
+                "action": "install"
+            }]
+        }
+    },
+    "override_attributes": {},
+    "run_list": [
+        "role[base]",
+        "recipe[nodejs::nodejs_from_source]",
+        "recipe[nodejs::npm_from_source]",
+        "recipe[nodejs::npm_packages]"
+    ]
 }
