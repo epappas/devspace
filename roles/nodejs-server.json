@@ -57,6 +57,9 @@
             }, {
                 "name": "webpack",
                 "action": "install"
+            }, {
+                "name": "babel-cli",
+                "action": "install"
             }]
         }
     },
